@@ -5,9 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
-
-
-
+import { MaterialModule } from './material.module';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -17,7 +15,8 @@ import { FlexModule } from '@angular/flex-layout';
   imports: [
     CommonModule,
     RouterModule,
-    FlexModule
+    FlexModule,
+    MaterialModule
   ],
   exports: [
     FooterComponent,
