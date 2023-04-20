@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminProductAddComponent } from 'src/app/modules/admin/admin-product-add/admin-product-add.component';
 import { AdminProductFormComponent } from 'src/app/modules/admin/admin-product-form/admin-product-form.component';
 import { AdminMessageComponent } from 'src/app/modules/admin/admin-message/admin-message.component';
+import { AdminConfirmDialogComponent } from 'src/app/modules/admin/admin-confirm-dialog/admin-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AdminMessageComponent } from 'src/app/modules/admin/admin-message/admin
     AdminProductUpdateComponent,
     AdminProductAddComponent,
     AdminProductFormComponent,
-    AdminMessageComponent
+    AdminMessageComponent,
+    AdminConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { AdminMessageComponent } from 'src/app/modules/admin/admin-message/admin
     FlexLayoutModule,
     MaterialModule,
     ReactiveFormsModule
+    
   ]
 })
 export class FullpageadminModule { }
