@@ -15,6 +15,9 @@ export class AdminProductUpdateComponent implements OnInit {
 
   product!: AdminProductUpdate;
   productForm!: FormGroup;
+  requiredFileTypes = "image/jpeg, image/png";
+  imageForm!: FormGroup;
+  image: string | null=null;
 
   constructor(
     private router: ActivatedRoute,
@@ -32,20 +35,20 @@ export class AdminProductUpdateComponent implements OnInit {
       description: ['',[Validators.required,Validators.minLength(4)]],
       category: ['',[Validators.required,Validators.minLength(4)]],
       price: ['',[Validators.required,Validators.min(4)]],
-      currency: ['PLN', Validators.required]
+      currency: ['PLN', Validators.required],
+      slug: ['',[Validators.required, Validators.minLength(4)]]
+      
     });
+
+    this.imageForm = this.formBuilder.group({
+      file:['']
+    })
   }
 
   getProduct() {
     let id = Number(this.router.snapshot.params['id']);
     this.adminProductUpdateService.getProduct(id)
-      .subscribe(product => this.productForm.setValue({
-        name: product.name,
-        description: product.description,
-        category: product.category,
-        price: product.price,
-        currency: product.currency
-      }));
+      .subscribe(product => this.mapFormValues(product));
   }
 
   submit() {
@@ -56,6 +59,8 @@ export class AdminProductUpdateComponent implements OnInit {
       category: this.productForm.get('category')?.value,
       price: this.productForm.get('price')?.value,
       currency: this.productForm.get('currency')?.value,
+      slug: this.productForm.get('slug')?.value,
+      image: this.image
     } as AdminProductUpdate).subscribe({
       next: product => {
         this.mapFormValues(product)
@@ -65,14 +70,31 @@ export class AdminProductUpdateComponent implements OnInit {
     });
   }
 
+  uploadFile(){
+    let formData = new FormData();
+    formData.append('file', this.imageForm.get('file')?.value);
+    this.adminProductUpdateService.uploadImage(formData)
+     .subscribe(result => this.image = result.filename);
+  }
+
+  onFileChange(event: any){
+    if(event.target.files.length > 0){
+      this.imageForm.patchValue({
+        file: event.target.files[0]
+      });
+    }
+  }
+
 
   private mapFormValues(product: AdminProductUpdate): void {
-    return this.productForm.setValue({
+    this.productForm.setValue({
       name: product.name,
       description: product.description,
       category: product.category,
       price: product.price,
-      currency: product.currency
+      currency: product.currency,
+      slug: product.slug
     });
+    this.image = product.image;
   }
 }
