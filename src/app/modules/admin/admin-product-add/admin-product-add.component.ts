@@ -33,7 +33,7 @@ export class AdminProductAddComponent {
       name: ['',[Validators.required, Validators.minLength(4)]],
       description: ['',[Validators.required,Validators.minLength(4)]],
       fullDescription:[''],
-      category: ['',[Validators.required,Validators.minLength(4)]],
+      categoryId: ['',[Validators.required]],
       price: ['',[Validators.required,Validators.min(4)]],
       currency: ['PLN', Validators.required],
       slug: ['',[Validators.required, Validators.minLength(4)]]
@@ -47,7 +47,7 @@ export class AdminProductAddComponent {
       name: this.productForm.get('name')?.value,  
       description: this.productForm.get('description')?.value,  
       fullDescription:  this.productForm.get('fullDescription')?.value,  
-      category: this.productForm.get('category')?.value,  
+      categoryId: this.productForm.get('categoryId')?.value,  
       price: this.productForm.get('price')?.value,  
       currency: this.productForm.get('currency')?.value,  
       slug: this.productForm.get('slug')?.value,  
