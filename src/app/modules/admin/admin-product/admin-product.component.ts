@@ -49,9 +49,9 @@ export class AdminProductComponent implements AfterViewInit{
               this.table.renderRows();
             }
           })
-         })
+         });
       }
-    })
+    });
   }
 
 }

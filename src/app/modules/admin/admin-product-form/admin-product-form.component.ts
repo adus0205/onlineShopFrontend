@@ -1,7 +1,7 @@
 import { style } from "@angular/animations";
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { AdminCategoryNameDto } from "./adminCategoryNameDto";
+import { AdminCategoryNameDto } from "../common/dto/adminCategoryNameDto";
 import { FormCategoryService } from "./form-category.service";
 
 @Component({
