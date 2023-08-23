@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminCategoryNameDto } from '../common/dto/adminCategoryNameDto';
 import { AdminCategoryService } from './admin-category.service';
-import { AdminConfirmDialogService } from '../admin-confirm-dialog.service';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 import { MatTable } from '@angular/material/table';
 
 @Component({
@@ -11,7 +11,7 @@ import { MatTable } from '@angular/material/table';
 })
 export class AdminCategoryComponent implements OnInit {
 
-  displayedColumns: string[] = ["id","name","actions"]
+  displayedColumns: string[] = ["id", "name", "actions"];
   data: Array<AdminCategoryNameDto> = [];
   @ViewChild(MatTable) table!: MatTable<any>; 
 

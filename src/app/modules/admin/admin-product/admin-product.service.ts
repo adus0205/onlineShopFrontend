@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AdminProduct } from './admin-product';
-import { Page } from 'src/app/shared/model/page';
+import { AdminProduct } from './model/admin-product';
+import { Page } from 'src/app/modules/common/model/page';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 

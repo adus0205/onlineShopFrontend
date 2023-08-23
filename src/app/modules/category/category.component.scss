@@ -1,0 +1,29 @@
+@import '../../../variables.scss';
+:host{
+    display: flex;
+    flex-direction: column;
+}
+.prductPrice{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    color: $primary;
+}
+.productImage{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.productContent{
+    font-size: 18px;
+}
+mat-card{
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: #777;
+} 

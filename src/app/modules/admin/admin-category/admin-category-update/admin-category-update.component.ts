@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminCategoryService } from '../admin-category.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AdminMessageService } from '../../admin-message.service';
+import { AdminMessageService } from '../../common/service/admin-message.service';
 import { AdminCategory } from '../model/adminCategory';
 
 @Component({
@@ -40,9 +40,9 @@ export class AdminCategoryUpdateComponent implements OnInit{
   submit(){
     this.adminCategoryService.saveProduct(Number(this.route.snapshot.params['id']), this.categoryForm.value)
     .subscribe({
-      next: category=> {
+      next: category => {
         this.mapToFormValues(category);
-        this.snackBar.open('Kategoria została zapisana','',{duration: 3000});
+        this.snackBar.open("Kategoria została zapisana", "", {duration: 3000});
       },
       error: err => {
         this.adminMessageService.addSpringErrors(err.error);

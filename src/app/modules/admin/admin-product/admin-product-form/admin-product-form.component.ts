@@ -1,7 +1,7 @@
 import { style } from "@angular/animations";
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { AdminCategoryNameDto } from "../common/dto/adminCategoryNameDto";
+import { AdminCategoryNameDto } from "../../common/dto/adminCategoryNameDto";
 import { FormCategoryService } from "./form-category.service";
 
 @Component({
@@ -111,7 +111,7 @@ export class AdminProductFormComponent implements OnInit {
 
     getCategories(){
         this.formCategoryService.getCategories()
-        .subscribe(categories=> this.categories = categories);
+        .subscribe(categories => this.categories = categories);
     }
 
     get name() {

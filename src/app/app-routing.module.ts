@@ -8,8 +8,8 @@ import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ProductComponent } from './modules/product/product.component';
 import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
-import { AdminProductUpdateComponent } from './modules/admin/admin-product-update/admin-product-update.component';
-import { AdminProductAddComponent } from './modules/admin/admin-product-add/admin-product-add.component';
+import { AdminProductUpdateComponent } from './modules/admin/admin-product/admin-product-update/admin-product-update.component';
+import { AdminProductAddComponent } from './modules/admin/admin-product/admin-product-add/admin-product-add.component';
 import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { AdminCategoryComponent } from './modules/admin/admin-category/admin-category.component';
 import { AdminCategoryAddComponent } from './modules/admin/admin-category/admin-category-add/admin-category-add.component';
@@ -44,7 +44,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

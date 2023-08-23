@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminProductAddService } from './admin-product-add.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AdminMessageService } from '../admin-message.service';
-import { AdminProductUpdateService } from '../admin-product-update/admin-product-update.service';
-import { AdminProductUpdate } from '../admin-product-update/model/adminProductUpdate';
+import { AdminMessageService } from '../../common/service/admin-message.service';
+import { AdminProductUpdate } from '../model/adminProductUpdate';
+import { AdminProductImageService } from '../admin-product-image.service';
 
 @Component({
   selector: 'app-admin-product-add',
@@ -25,7 +25,7 @@ export class AdminProductAddComponent {
     private router: Router,
     private snackBar: MatSnackBar,
     private adminMessageService: AdminMessageService,
-    private adminProductUpdateService: AdminProductUpdateService
+    private adminProductImage: AdminProductImageService
     ){}
 
   ngOnInit(): void {
@@ -64,7 +64,7 @@ export class AdminProductAddComponent {
   uploadFile(){
     let formData = new FormData();
     formData.append('file', this.imageForm.get('file')?.value);
-    this.adminProductUpdateService.uploadImage(formData)
+    this.adminProductImage.uploadImage(formData)
      .subscribe(result => this.image = result.filename);
   }
 
