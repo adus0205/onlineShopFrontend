@@ -8,6 +8,6 @@
         <button mat-raised-button color="accent" routerLink="/products">Produkty</button>
         <span></span>
         <button mat-raised-button color="warn" routerLink="/login">Zaloguj</button>
-        <a routerLink="/cart"><mat-icon color="accent" class="shpoppingBasket">shopping_basket</mat-icon></a>
+        <a routerLink="/cart"><mat-icon color="accent" class="shpoppingBasket" matBadge="{{cartProductCounter}}" matBadgeColor="warn">shopping_basket</mat-icon></a>
     </div>
 </header>
