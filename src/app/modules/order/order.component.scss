@@ -1,3 +1,13 @@
+.orderForm{
+    width: 400px;
+}
+.errorMessage{
+    color: red;
+}
+.orderbutton{
+    font-size: 18px;
+    width: 150px;
+}
 .cart-hcol-1, 
 .cart-hcol-2,
 .cart-hcol-3,
@@ -38,10 +48,9 @@
     padding: 11px;
     border-bottom: 1px solid #eee;
 }
-.quantityInput{
-    width: 25px;
-}
-.orderButton{
+.orderSummary{
     font-size: 18px;
-    width: 150px;
+}
+.orderSummary div{
+    margin-bottom: 14px;
 }
