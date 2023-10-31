@@ -5,6 +5,7 @@ import { CartSummary } from '../common/model/cart/cartSummary';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OrderDto } from './model/orderDto';
 import { OrderSummary } from './model/orderSummary';
+import { InitData } from './model/initData';
 
 @Component({
   selector: 'app-order',
@@ -16,6 +17,7 @@ export class OrderComponent {
   cartSummary!: CartSummary;
   formGrup!: FormGroup; 
   orderSummary!: OrderSummary;
+  initData!: InitData;
 
   private statuses = new Map<string, string>([
     ["NEW","nowe"],
@@ -36,7 +38,9 @@ export class OrderComponent {
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
+      shipment: ['', Validators.required]
     });
+    this.getinitData();
   }
 
   checkCartEmpty() {
@@ -55,7 +59,8 @@ export class OrderComponent {
         city: this.formGrup.get('city')?.value,
         email: this.formGrup.get('email')?.value,
         phone: this.formGrup.get('phone')?.value,
-        cartId: Number(this.cookieService.get("cartId"))
+        cartId: Number(this.cookieService.get("cartId")),
+        shipmentId: Number(this.formGrup.get('shipment')?.value.id)
       }as OrderDto)
         .subscribe(orderSummary => {
           this.orderSummary = orderSummary
@@ -63,6 +68,16 @@ export class OrderComponent {
         })
     }
   }
+
+  getinitData(){
+    this.orderService.getInitData()
+      .subscribe(initData => {
+        this.initData = initData;
+        this.setDefaultShipment();})
+  }
+  setDefaultShipment() {
+    this.formGrup.patchValue({"shipment": this.initData.shipment.filter(shipment => shipment.defaultShipment === true)[0]})
+  };
 
   getStatus(status: string){
     return this.statuses.get(status);
@@ -94,6 +109,10 @@ export class OrderComponent {
 
   get phone(){
     return this.formGrup.get("phone");
+  }
+
+  get shipment(){
+    return this.formGrup.get("shipment");
   }
 
 }
