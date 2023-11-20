@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OrderDto } from './model/orderDto';
 import { OrderSummary } from './model/orderSummary';
 import { InitData } from './model/initData';
+import { CartIconService } from '../common/service/cart-icon.service';
 
 @Component({
   selector: 'app-order',
@@ -18,14 +19,17 @@ export class OrderComponent {
   formGrup!: FormGroup; 
   orderSummary!: OrderSummary;
   initData!: InitData;
+  errorMessage = false;
 
   private statuses = new Map<string, string>([
     ["NEW","nowe"],
   ]);
 
-  constructor(private cookieService: CookieService,
+  constructor(
+    private cookieService: CookieService,
     private orderService: OrderService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private cartIconService: CartIconService
     ) {}
 
   ngOnInit(): void{
@@ -64,10 +68,15 @@ export class OrderComponent {
         shipmentId: Number(this.formGrup.get('shipment')?.value.id),
         paymentId: Number(this.formGrup.get('payment')?.value.id)
       }as OrderDto)
-        .subscribe(orderSummary => {
+        .subscribe({
+          next: orderSummary => {
           this.orderSummary = orderSummary
           this.cookieService.delete("cartId");
-        })
+          this.errorMessage = false;
+          this.cartIconService.cartChanged(0);
+        },
+        error: err=> this.errorMessage = true
+      })
     }
   }
 
