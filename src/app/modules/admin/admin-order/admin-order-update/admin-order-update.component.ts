@@ -40,6 +40,7 @@ export class AdminOrderUpdateComponent implements OnInit {
         this.formGroup.setValue({
           orderStatus: order.orderStatus
         })
+        order.orderLogs.sort((element1,element2) => new Date(element2.created).getTime() - new Date(element1.created).getTime());
       });
   }
 

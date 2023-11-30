@@ -1,3 +1,4 @@
+import { AdminOrderLog } from "./AdminOrderLog"
 import { AdminOrderRow } from "./adminOrderRow"
 import { AdminPayment } from "./adminPayment"
 
@@ -14,6 +15,7 @@ export interface AdminOrder{
     city: string,
     email: string,
     phone: string,
-    payment: AdminPayment
+    payment: AdminPayment,
+    orderLogs: Array<AdminOrderLog>
 
 }
