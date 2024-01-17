@@ -34,7 +34,10 @@ export class AdminLoginComponent implements OnInit{
         .subscribe({
           next: (response) => {
             this.loginError = false;
-            this.jwtService.setToken(response.token);
+            if(response.adminAcces){
+              this.jwtService.setToken(response.token);
+              this.jwtService.setAdminAcces(true);
+            }
             this.router.navigate(["/admin"]);
           },
           error: () => this.loginError = true

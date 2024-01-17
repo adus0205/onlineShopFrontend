@@ -13,6 +13,7 @@ import { JwtInterceptor } from './modules/common/interceptor/jwt.interceptor';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizedGuard';
 
 
+
 @NgModule({
   declarations: [
     AppComponent

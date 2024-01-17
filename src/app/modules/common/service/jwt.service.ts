@@ -6,6 +6,8 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class JwtService {
 
+  adminAcces = false;
+
   constructor() { }
 
   setToken(token: string){
@@ -26,5 +28,13 @@ export class JwtService {
   private notExpired(token: string): boolean{
     let tokenDecoded = jwtDecode<any>(token);
     return (tokenDecoded.exp * 1000) > new Date().getTime();
+  }
+
+  public setAdminAcces(adminAcces: boolean){
+    return this.adminAcces = adminAcces;
+  }
+
+  public getAdminAcces(): boolean{
+    return this.adminAcces;
   }
 }
