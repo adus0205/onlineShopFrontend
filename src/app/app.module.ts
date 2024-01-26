@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FullpageadminemptyModule } from './layouts/fullpageadminempty/fullpageadminempty.module';
 import { JwtInterceptor } from './modules/common/interceptor/jwt.interceptor';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizedGuard';
+import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizedGuard';
 
 
 
@@ -31,7 +32,8 @@ import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorize
   providers: [
    CookieService,
    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-   AdminAuthorizeGuard
+   AdminAuthorizeGuard,
+   ProfileAuthorizeGuard
   ],
   bootstrap: [AppComponent]
 })
