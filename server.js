@@ -9,7 +9,6 @@ const apiProxy = proxy.createProxyMiddleware("/api", {
     pathRewrite: {
         '^/api':''
     }
-    
 });
 
 app.use(apiProxy);
