@@ -45,8 +45,8 @@ Contact
   - Clone this repository to your IDE (https://github.com/jakubknap/ShopFrontend.git)
   - Go to your project folder
   - Run command
-'npm install'
+`npm install`
   - And start the application
-'npm run dev'
+`npm run dev`
   - The client application runs on localhost:4200. The administrative application is available at localhost:4200/admin
   - Default login to admin website: login: admin, password: test
