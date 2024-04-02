@@ -25,11 +25,11 @@ The default login is: admin
 Default password is: test
 
 ## Technologies Used
-  - Npm - version 9.6.1
-  - Node.js - version 18.15.0
-  - Angular CLI - version 16.0.6
-  - Angular Material - version 16.0.4
-  - Chart.js - version 4.3.0
+  - Npm - version 9.3.1
+  - Node.js - version 18.14.1
+  - Angular CLI - version 16.2.12
+  - Angular Material - version 15.2.1
+  - Chart.js - version 4.4.1
   - Others, which can be seen in the package.json file
 
 ## Setup
