@@ -21,17 +21,8 @@ From the user side:
     
 In a nutshell, this is the outline of the application. There is also a mechanism for registration, login and password reminders.
 
-I don't know how long the application will run, but there is a demo on display, available at: https://shopfrontend-production-f14c.up.railway.app/
-
-And for the administrator: https://shopfrontend-production-f14c.up.railway.app/admin
-
 The default login is: admin
 Default password is: test
-Table of Contents
-Technologies Used
-Screenshots
-Setup
-Contact
 
 ## Technologies Used
   - Npm - version 9.6.1
@@ -42,7 +33,7 @@ Contact
   - Others, which can be seen in the package.json file
 
 ## Setup
-  - Clone this repository to your IDE (https://github.com/jakubknap/ShopFrontend.git)
+  - Clone this repository to your IDE (https://github.com/adus0205/onlineShopFrontend.git)
   - Go to your project folder
   - Run command
 ```
