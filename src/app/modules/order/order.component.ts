@@ -74,12 +74,16 @@ export class OrderComponent {
       }as OrderDto)
         .subscribe({
           next: orderSummary => {
-          this.orderSummary = orderSummary
-          this.cookieService.delete("cartId");
-          this.errorMessage = false;
-          this.cartIconService.cartChanged(0);
-        },
-        error: err=> this.errorMessage = true
+            this.cookieService.delete("cartId");
+            this.errorMessage = false;
+            this.cartIconService.cartChanged(0);
+            if(orderSummary.redirectUrl){
+              window.location.href = orderSummary.redirectUrl;
+            }else {
+              this.orderSummary = orderSummary
+            }
+          },
+          error: err=> this.errorMessage = true
       })
     }
   }
