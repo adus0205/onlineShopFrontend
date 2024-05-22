@@ -1,27 +1,47 @@
-# OnlineShop
+# Online Shop
+> This is a fullstack online store project. The application includes the basic functions of an online store, as well as those that are a bit more advanced. There is integration with a payment gateway in this application, sending emails and much more.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+The application in a nutshell has such functionalities:
 
-## Development server
+On the administrative side:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  - Add, edit and delete products.
+  - Add, edit and delete categories
+  - Order management, including exporting orders to CSV file and viewing sales statistics in the form of a chart
+  - Moderation of user reviews (approval, deletion)
+    
+From the user side:
 
-## Code scaffolding
+  - Viewing products
+  - Searching for products by category
+  - Creating orders (adding products to cart, deleting, ordering)
+  - Adding product reviews
+  - Viewing the list of your orders
+  - Email notifications
+    
+In a nutshell, this is the outline of the application. There is also a mechanism for registration, login and password reminders.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The default login is: admin
+Default password is: test
 
-## Build
+## Technologies Used
+  - Npm - version 9.3.1
+  - Node.js - version 18.14.1
+  - Angular CLI - version 16.2.12
+  - Angular Material - version 15.2.1
+  - Chart.js - version 4.4.1
+  - Others, which can be seen in the package.json file
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Setup
+  - Clone this repository to your IDE (https://github.com/adus0205/onlineShopFrontend.git)
+  - Go to your project folder
+  - Run command
+```
+npm install
+```
+  - And start the application
+```
+npm run dev
+```
+  - The client application runs on localhost:4200. The administrative application is available at localhost:4200/admin
+  - Default login to admin website: login: admin, password: test
