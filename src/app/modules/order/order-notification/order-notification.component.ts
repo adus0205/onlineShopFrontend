@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
 import { ActivatedRoute } from '@angular/router';
+import { interval, mergeMap, takeUntil, takeWhile, timer } from 'rxjs';
 
 @Component({
   selector: 'app-order-notification',
@@ -20,6 +21,15 @@ export class OrderNotificationComponent implements OnInit {
   getStatus() {
     let hash = this.route.snapshot.params['orderHash'];
     this.orderService.getStatus(hash)
-      .subscribe(status => this.status = status.paid);
+      .subscribe(status => {
+        this.status = status.paid;
+        if(this.status === false){
+          interval(5000).pipe(
+            mergeMap(() => this.orderService.getStatus(hash)),
+            takeUntil(timer(5 * 60 * 1000)),
+            takeWhile(value => value.paid === false, true)
+          ).subscribe(status => this.status = status.paid); 
+        }
+      });  
   }
 }

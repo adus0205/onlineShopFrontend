@@ -30,6 +30,7 @@ import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizedG
 import { LostPasswordComponent } from './modules/login/lost-password/lost-password.component';
 import { OrderNotificationComponent } from './modules/order/order-notification/order-notification.component';
 
+
 const routes: Routes = [
   {
     path:'', component: DefaultComponent, children: [

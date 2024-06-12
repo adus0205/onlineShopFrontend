@@ -14,6 +14,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatRadioModule} from '@angular/material/radio';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -32,7 +33,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatBadgeModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatIconModule,
@@ -48,7 +50,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatBadgeModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatProgressSpinnerModule
   ],
   providers:[
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc:true}}
